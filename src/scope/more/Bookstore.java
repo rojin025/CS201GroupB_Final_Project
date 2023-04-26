@@ -2,7 +2,7 @@ package scope.more;
 
 class Bookstore {
     private static final int DEFAULT_NO_OF_EMPLOYEES = 20;
-    private static final int DEFAULT_NO_OF_BOOKS = 100;
+    private static final int DEFAULT_NO_OF_BOOKS = 2;
     private String id = null;
     private Book[] books;
     private Employee[] employees;
@@ -33,7 +33,7 @@ class Bookstore {
     }
 
     public boolean addNewBook2(String bookId) throws RuntimeException{
-        if(bookId.length() > 3 || bookId.length() < 3){
+         if (bookId.length() != 3) {
             System.out.println("Invalid Book Id.");
             return false;
 //            System.exit(0);// Exit From the System.
@@ -46,6 +46,7 @@ class Bookstore {
                 }
             }
         }
+
         throw new RuntimeException();
     }
 
@@ -73,7 +74,7 @@ class Bookstore {
     }
 
     public boolean addNewEmployee(String employeeId) {
-        if (employeeId.length() > 3 || employeeId.length() < 3) {       //     XXX
+        if (employeeId.length() != 3) {       //     XXX
             System.out.println("Invalid Employee Id.");
             return false;
         } else {
@@ -103,6 +104,7 @@ class Bookstore {
     public static void main(String[] args) {
         Bookstore bs = new Bookstore("123");
         bs.printTheBooks();
+        bs.addNewBook("101");
         bs.addNewBook("101");
         bs.addNewBook("102");
         bs.addNewBook("103");

@@ -15,6 +15,7 @@ public class Driver {
         System.out.println("What is your Id? (An Id is a 3-digit code, like 009.)");
         String userId = sc.nextLine();
 
+        //Rojin
         //Check Ids
         if (!directory.isGoodId(userId)) {//False then terminate
             System.out.println("User Id not found!");
@@ -105,6 +106,34 @@ public class Driver {
         }
 
     }
+
+    //Rojin
+    //RuntimeException
+    void addBook(String bookId){
+        //implement -- redo the implementation
+        try {
+            directory.addNewBook(bookId);
+//
+        } catch (RuntimeException e) {
+            System.out.println("Array list full of Books.");//Error Msg
+            System.out.printf(line + CONTINUE);
+            return;
+        }
+        System.out.println(line+CONTINUE);//Successful
+//        System.out.println("Book added successfully " + line+CONTINUE);//Successful
+    }
+
+    //Rojin
+    void checkIfBookIsInStock(String bookId){
+        //implement -- redo the implementation
+        boolean isInStock = directory.bookIsInStock(bookId);
+        if(isInStock){
+            System.out.println("Yes, book with bookId "+bookId+" is in stock." +" (Look for console messages.)"+line+CONTINUE);
+        }else {
+            System.out.println("Book " + bookId + " is not in stock");
+        }
+    }
+
     void displayNumberOfEmployees() {
         //implement -- redo the implementation
         int numOfEmployees = directory.getNumberOfBookstoreEmployees();
@@ -120,27 +149,8 @@ public class Driver {
             System.out.println( line+CONTINUE);
         }
     }
-    void addBook(String bookId){
-        //implement -- redo the implementation
-        try {
-            directory.addNewBook(bookId);
-//
-        } catch (RuntimeException e) {
-            System.out.println("Array list full of Books: ");//Error Msg
-            return;
-        }
-        System.out.println(line+CONTINUE);//Successful
-//        System.out.println("Book added successfully " + line+CONTINUE);//Successful
-    }
-    void checkIfBookIsInStock(String bookId){
-        //implement -- redo the implementation
-        boolean isInStock = directory.bookIsInStock(bookId);
-        if(isInStock){
-            System.out.println("Yes, book with bookId "+bookId+" is in stock." +" (Look for console messages.)"+line+CONTINUE);
-        }else {
-            System.out.println("Book " + bookId + " is not in stock");
-        }
-    }
+
+
 
     void checkWhetherFoodItemInMarket(String foodItem){
         //	implement-- redo the implementation
@@ -149,6 +159,7 @@ public class Driver {
             System.out.println("Yes the market carries "+foodItem+line+CONTINUE);
         }else {
             System.out.println("Food item " + foodItem + " is not in the market");
+            System.out.printf(line + CONTINUE);
         }
     }
 
